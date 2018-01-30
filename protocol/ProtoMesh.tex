@@ -459,6 +459,9 @@
                         \end{tabular}
                     \end{center}
                     
+				\subsubsection{Subscriptions}
+					In order to get updated about changes in endpoints with return values the concept of subscriptions exists. To receive updates a device may send a Subscribe request 
+                    
         \clearpage
         \section{Users}\label{section:interaction:user}
             Since a user may interact with devices it is required to represent a user entity within the network. This is done by generating a private key for the user based on random data. The user should then copy the key possibly through a file sharing endpoint between applications that allow the user to interact with the network and act as a proxy between the user and the network. Note that like devices users are participants in the network. They may have their own communication layer which uses their ID and public key. Unlike devices though users usually don't have endpoints.
