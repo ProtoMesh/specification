@@ -340,6 +340,7 @@
                 \subsubsection[Endpoint types]{Endpoint type defintions}
                     The communication between nodes is type safe. That means every function has predefined arguments and return values. Every type has a unique identifier which can be used to reference it and a scalar data type to define the serialization. Additionally a human readable explanation on how to interpret the value is provided.
                     \begin{minted}{c++}
+                        subscription_t: uint8 // 0 = get, 1 = subscribe, 2 = unsubscribe
                         brightness_t: float // 1.0 = full on, 0.0 = off
                         temperature_t: float // temperature in Kelvin
                         state_t: bool // true = on, false = off
@@ -352,10 +353,10 @@
                         	\hline
                         	\multicolumn{2}{|c|}{\textbf{Endpoint Type}} & \multicolumn{2}{|c|}{\textbf{Function}} & \multirow{2}{*}{\textbf{Parameters}} & \multirow{2}{*}{\textbf{Return Type}} \\
                         	ID & Name                                    & ID & Name                               &                                      &                                       \\ \hline
-                        	2  & Temperature                             & 0  & set\_temperature                   & temperature\_t                       & void                                  \\
-                        	   &                                         & 1  & get\_temperature                   &                                      & temperature\_t                        \\ \hline
-                        	3  & Brightness                              & 0  & set\_brightness                    & brightness\_t                        & void                                  \\
-                        	   &                                         & 1  & get\_brightness                    &                                      & brightness\_t                         \\ \hline
+                        	2  & Temperature                             & 0  & set\_temperature                   & temperature\_t                       &                                  \\
+                        	   &                                         & 1  & get\_temperature                   & subscription\_t                      & subscription\_t, temperature\_t                        \\ \hline
+                        	3  & Brightness                              & 0  & set\_brightness                    & brightness\_t                        &                                   \\
+                        	   &                                         & 1  & get\_brightness                    & subscription\_t                      & subscription\_t, brightness\_t                         \\ \hline
                         \end{tabular}
                     \end{center}
                 
